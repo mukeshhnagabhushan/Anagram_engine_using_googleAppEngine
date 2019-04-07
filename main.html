@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Anagram Home </title>
+    <style>
+        body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+h1 {
+  color:#6e2020;
+}
+p {
+  color: #6e2020;
+}
+.header {
+  padding: 10px;
+  text-align: left;
+  background-color: #a29585;
+  color: black;
+  font-size: 30px;
+  font-family:Trebuchet MS;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+.main {
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  font-family:Courier New ;
+   color:#6e2020;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+.container {
+  border-radius: 20px;
+  background-color: #dfd5cd;
+  padding: 20px;
+ width: 950px;
+ margin: auto;
+ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 120%;
+}
+input[type=Date], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+font-size: 120%;
+}
+
+
+input[type=submit] {
+  background-color: #8b7b7b;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+  text-align: centre;
+}
+
+input[type=submit]:hover {
+  background-color: #858585;
+}
+.chkbox{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 120%;
+}
+input[type=checkbox] {
+    zoom: 1.5;
+}
+label{
+font-size: 120%;
+}
+
+#tables {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 950px;
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#tables td, #tables th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tables tr:nth-child(even){background-color: #f2f2f2;}
+
+#tables tr:hover {background-color: #ddd;}
+
+#tables th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8b7b7b;
+  color: white;
+}
+
+    </style>
+</head>
+<body >
+<div class="header">
+<h3>Anagram Engine</h3>
+</div>
+<div class="navbar">
+    <a href="{{ logout_url }}" class="right">Logout</a>
+
+</div>
+
+<i></i></i><br/><br/><br/>
+<form action="/" method="post" >
+    <div class="container">
+        Total word count: {{ wordCount }}</br>
+        Anagram Count: {{ anaCount }}
+         <p> To add the words into the dictionary <a href="/add"> click here </a></p>
+        <p> To upload <a href="/upload"> click here </a></p>
+        <p>to check sub anagram<a href="/subAnag">click here</a></p>
+         <p>Enter a word to search</p>
+    <label >Search :</label>
+    <input type="text" pattern="([A-Za-z]).{2,}" name="word"/><br/><br/>
+
+              <input type="submit" name="button" value="search">
+              <br/>
+</div>
+</form>
+
+<br/>
+{{message}}<br/>
+Key:{{ anagrmEngine.anagramK }}
+<!--<div class="tables">-->
+<table>
+  <th> WORDLIST </th>
+  {% for x in anagrmEngine.wordList %}
+      <tr><td>{{ x }}</td></tr>
+  {% endfor %}
+</table>
+<!--</div>-->
+<div class="footer"></div>
+</body>
+
+</html>
