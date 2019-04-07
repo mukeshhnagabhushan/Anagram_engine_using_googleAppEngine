@@ -14,8 +14,6 @@ extensions = ['jinja2.ext.autoescape'],
 autoescape = True
 )
 
-
-
 def wordSort(word):
     listWord = list(word)
     subWordKey = []
@@ -28,10 +26,10 @@ def wordSort(word):
 class sub(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        # message = "Welcome to sub anagram search page"
+
         result =[]
         template_values = {
-        # 'message':message,
+
         'subAnag':result
         }
         template = JINJA_ENVIRONMENT.get_template('subAnag.html')

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>ADDING WORD INTO DICTIONARY</title>
+    <title>Add new word</title>
       <style>
       body {
   font-family: Arial, Helvetica, sans-serif;
@@ -146,18 +146,23 @@ font-size: 120%;
 <h3>Anagram Engine</h3>
 </div>
   <div class="navbar">
-    <a href="/" class="right"> Home </a><br/>
+    <a href="/" class="right"> Home </a>
+
+    <a href="/upload" class="right">Upload a file</a>
       </div>
 
+  </br>
 
       <form  action="/add" method="post">
           <div class="container">
-              {{message}}
-    <h2>Add word</h2>
-    <h4>Words lengths should be minimum 3 letters </h4>
+
+    <h1>Add new word to Dictionary</h1>
+
         <label >Word :</label>
               <input type="text" pattern="([A-Za-z]).{2,}" name="Word" >
+              <p>Word should have minimum 3 letters </p>
         <input type="submit" name="button" value="Add" >
+              <p style="text-align:center">{{message}}</p>
   </div>
       </form>
 

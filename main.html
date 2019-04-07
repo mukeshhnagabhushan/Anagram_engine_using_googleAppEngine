@@ -148,38 +148,44 @@ font-size: 120%;
 </div>
 <div class="navbar">
     <a href="{{ logout_url }}" class="right">Logout</a>
+     <a href="/subAnag" class="right">Sub Anagram</a>
+    <a href="/upload" class="right">Upload a file</a>
+    <a href="/add" class="right"> Add new word</a>
+
 
 </div>
 
-<i></i></i><br/><br/><br/>
+<br/><br/><br/>
+<div class="container">
 <form action="/" method="post" >
-    <div class="container">
-        Total word count: {{ wordCount }}</br>
-        Anagram Count: {{ anaCount }}
-         <p> To add the words into the dictionary <a href="/add"> click here </a></p>
-        <p> To upload <a href="/upload"> click here </a></p>
-        <p>to check sub anagram<a href="/subAnag">click here</a></p>
-         <p>Enter a word to search</p>
-    <label >Search :</label>
+
+
+
+
+         <p></p>
+    <label >Enter a word to search</label>
     <input type="text" pattern="([A-Za-z]).{2,}" name="word"/><br/><br/>
 
               <input type="submit" name="button" value="search">
               <br/>
-</div>
+<h3 style="text-align:center" >Total word count: {{ wordCount }}</h3>
+<h3 style="text-align:center">Anagram Count: {{ anaCount }}</h3>
+
 </form>
 
 <br/>
 {{message}}<br/>
 Key:{{ anagrmEngine.anagramK }}
-<!--<div class="tables">-->
-<table>
-  <th> WORDLIST </th>
+<br/><br/>
+<table style="text-align:center">
+  <th> Anagram Word List </th>
   {% for x in anagrmEngine.wordList %}
       <tr><td>{{ x }}</td></tr>
   {% endfor %}
 </table>
-<!--</div>-->
-<div class="footer"></div>
+</div>
+
+
 </body>
 
 </html>

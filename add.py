@@ -29,15 +29,12 @@ class Add(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         action = self.request.get('button')
         user = users.get_current_user()
-        # def lexicography(word):
-        #     anaList = list(word.lower())
-        #     sorted_list = sorted(anaList)
-        #     return ''.join(sorted_list)
+
 
         if action=='Add':
-            original_word = self.request.get('Word')
+            wordEntered = self.request.get('Word')
 
-            if not re.match("^[a-z]*$", original_word.lower()):
+            if not re.match("^[a-z]*$", wordEntered.lower()):
                 message = "Please enter alphabets only"
 
             else:
@@ -54,9 +51,9 @@ class Add(webapp2.RequestHandler):
                 if anagram == None :
                     addAnagram = model(id=user.email()+addWord,anagramK=addWord)
                     addAnagram.User=user.email()
-                    addAnagram.wordList.append(original_word)
+                    addAnagram.wordList.append(wordEntered)
                     addAnagram.wCount = 1
-                    addAnagram.lCount =  len(original_word)
+                    addAnagram.lCount =  len(wordEntered)
                     wordCount = myuser.wordCount+1
                     anaCount = myuser.anaCount+1
                     myuser = MyUser(id=user.user_id(),username=user.email(),anaCount=anaCount,wordCount=wordCount)
@@ -67,7 +64,7 @@ class Add(webapp2.RequestHandler):
                 else:
                     flag = False
                     for word in anagram.wordList:
-                        if word == original_word:
+                        if word == wordEntered:
                             flag = True
                             break
                         else:
@@ -77,7 +74,7 @@ class Add(webapp2.RequestHandler):
                         message = 'Word already exists'
                     else:
                         # anagram.User=user.email()
-                        anagram.wordList.append(original_word)
+                        anagram.wordList.append(wordEntered)
                         anagram.wCount = anagram.wCount + 1
                         anagram.put()
                         wordCount = myuser.wordCount+1

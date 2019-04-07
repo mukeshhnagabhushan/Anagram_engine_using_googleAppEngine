@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sub anagram</title>
     <style>
       body {
   font-family: Arial, Helvetica, sans-serif;
@@ -141,22 +141,34 @@ font-size: 120%;
 
     </style>
 </head>
-<body bgcolor="#D1C852">
-    <a href="/">HOME</a>
-<h1 align=center>{{message}}</h1>
+
+<body>
+ <div class="header">
+<h3>Anagram Engine</h3>
+</div>
+  <div class="navbar">
+    <a href="/" class="right"> Home </a>
+       <a href="/upload" class="right">Upload a file</a>
+    <a href="/add" class="right"> Add new word</a>
+      </div>
+</br>
+<div class="container">
+
+<h1>Sub anagrams</h1>
 
 <form  action="/subAnag" method="post">
    <input type="text" name="word" size="25" pattern="([a-zA-Z]).{2,}"/>
     <input type="submit" name="button" value="search"/>
 </form>
 
-
-  <table align=center border="1px">
-    <th> ANAGRAM and SUB ANAGRAMS </th>
+<br/>
+<br/>
+  <table class="tables">
+    <th> Sub anagrams</th>
     {% for i in subAnag %}
         <tr><td>{{ i }}</td></tr>
     {% endfor %}
   </table>
-
+</div>
   </body>
 </html>

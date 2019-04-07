@@ -1,12 +1,12 @@
 import webapp2;
 import os;
 import jinja2;
-import random;
+
 from google.appengine.ext import ndb;
 from google.appengine.api import users
 from myuser import MyUser
 from model import model
-import re
+
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -30,10 +30,7 @@ class upload(webapp2.RequestHandler):
         fileUpload = self.request.get('file')
         action = self.request.get('button')
         user = users.get_current_user()
-        # def lexicography(word):
-        #     anaList = list(word.lower())
-        #     sorted_list = sorted(anaList)
-        #     return ''.join(sorted_list)
+
 
         if action=='Upload':
             openf= open(fileUpload)
